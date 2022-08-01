@@ -7,6 +7,6 @@ module.exports = (app) =>{
 
     //GET  /notserv/api/v1/notifications/:id
     
-    app.get("/notserv/api/v1/notifications/:id", notificationController.getNotificationDetails);
+    app.get("/notiserv/api/v1/notifications/:id", notificationController.getNotificationDetails);
     
 }
