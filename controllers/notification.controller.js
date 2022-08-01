@@ -3,15 +3,15 @@ const Notification = require("../models/notification.model");
 
 exports.acceptNotificationRequest = async (req, res)=>{
 
-    const notificationObj = {
-        subject : req.body.subject,
-        recepientEmail : req.body.recepientEmail,
-        content : req.body.content,
-        requester : req.body.requester,
-        status : req.body.status
-    };
-
     try{
+        const notificationObj = {
+            subject : req.body.subject,
+            recepientEmails : req.body.recepientEmails,
+            content : req.body.content,
+            requester : req.body.requester,
+            status : req.body.status
+        };
+
         const notification = await Notification.create(notificationObj);
 
 
