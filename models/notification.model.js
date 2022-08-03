@@ -19,19 +19,19 @@ const notificationSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        defualt: constants.status.unsend,
+        default: constants.status.unsend,
         enum: [ constants.status.send, constants.status.unsend]
     },
     createdAt: {
         type: Date,
         immutable: true,
-        defualt: () => {
+        default: () => {
             return Date.now();
         }
     },
     updatedAt: {
         type: Date,
-        defualt: () => {
+        default: () => {
             return Date.now();
         }
     }
