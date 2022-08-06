@@ -3,7 +3,7 @@ const Notification = require('../models/notification.model');
 const emailTransporter = require('../notifiers/emailService');
 const constants = require('../utils/constants');
 
-cron.schedule("*/30 * * * * *", async () => {
+cron.schedule("*/5 * * * * *", async () => {
 
 
     console.log("inside the shceduler");
