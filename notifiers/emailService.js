@@ -9,7 +9,7 @@ module.exports = nodemailer.createTransport({
     service: "gmail",
     auth: {
         user: "sayyedaamandev01@gmail.com",
-        pass : 'oumtueetqaucnpsd'
+        pass : 'bmtrknvnvqmuwsmn'
     },
     secure : true,
 });
