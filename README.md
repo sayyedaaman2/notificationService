@@ -38,6 +38,7 @@ npm start
 ```
 
 <br/>
+
 ## REST API endpoints
 
 ## 1. Send the notification request
@@ -83,3 +84,5 @@ sample response body :
     "__v": 0
 }
 ```
+>**POSTMAN Collection** 
+ [link](https://www.getpostman.com/collections/7485b52cabc0c412533f)
