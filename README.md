@@ -1,88 +1,123 @@
-# notificationService
-This project is node.js back-end code for a Notification Services
-Application that can send the emails notification to user.
 
-<br/>
+# 📩 Notification Service
 
-## Freatures
+A Node.js backend service that handles email notifications.
+It accepts notification requests, schedules email delivery, and provides APIs to track notification status.
 
->**Email**
-- Accept the notification request from client
-- In application there is schedulers to check every sertain time, emails status and send the notification to user
-- Get the notification Details 
+## ✨ Features
 
-<br/>
+- 📧 Email Service
+    - Accepts notification requests from client applications.
+    - Uses schedulers to check email status and send notifications periodically.
+    - Provides APIs to retrieve notification details.
 
-# Dependencies
+## 🛠️ Tech Stack & Dependencies
 
-|npm modules|
-|-|
-|body-parser|
-|dotenv|
-|express|
-|mongoose|
-|node-cron|
-|nodemailer| 
-|uuid|
+| Package         | Purpose                 |
+| --------------- | ----------------------- |
+| **express**     | REST API framework      |
+| **mongoose**    | MongoDB object modeling |
+| **nodemailer**  | Email delivery          |
+| **node-cron**   | Job scheduling          |
+| **uuid**        | Unique tracking IDs     |
+| **dotenv**      | Environment variables   |
+| **body-parser** | Parse request bodies    |
 
-<br/>
+## ⚙️ Environment Variables
 
-## Installation
+Create a `.env` file in the root directory and add the following:
 
-Install the dependencies and devDependencies and start the server.
+```env
+# Server
+PORT=8000
 
-```sh
+# Database
+DB_URL=mongodb://localhost/notification
+
+# Email Service
+USER=your-email@gmail.com
+PASSWORD=your-app-password
+```
+
+---
+
+## ⚡ Getting Started
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/sayyedaaman2/notificationService.git
 cd notificationService
+```
+
+### 2️⃣ Install dependencies
+```bash
 npm install
+
+```
+### 3️⃣ Start the server
+```bash
 npm start
 ```
+The server will run on http://localhost:8000 (default).
 
-<br/>
 
-## REST API endpoints
+## 📡 REST API Endpoints
 
-## 1. Send the notification request
-
-```sh
+### 1. Send Notification Request
+```html
 POST /notiserv/api/v1/notifications
-
-sample request body : 
-{
-    "subject" : "Testing purpose ",
-    "recepientEmails" : "sayyedaamandev01@gmail.com",
-    "content" : "hello sir, My name is Aaman. ",
-    "requester" : "developer",
-    "status" : "UN_SENT"
-}
-
-sample response body :
-{
-    "message": "Request Accepted",
-    "trackingId": "6332954fae124e32d0497d71"
-}
 ```
 
-## 2. Get notifications Details
+Sample Request
+```json
+{
+  "subject": "Testing purpose",
+  "recepientEmails": "sayyedaamandev01@gmail.com",
+  "content": "Hello sir, my name is Aaman.",
+  "requester": "developer",
+  "status": "UN_SENT"
+}
 
-```sh
+```
+Sample Response
+```json
+{
+  "message": "Request Accepted",
+  "trackingId": "6332954fae124e32d0497d71"
+}
+
+```
+### 2. Get Notification Details
+```html
 GET /notiserv/api/v1/notifications/:id
 
-params : 
- id : 6332954fae124e32d0497d71
-sample request body : {}
-
-sample response body :
-{
-    "_id": "6332954fae124e32d0497d71",
-    "subject": "Testing purpose ",
-    "recepientEmails": "sayyedaamandev01@gmail.com",
-    "content": "hello sir, My name is Aaman. ",
-    "requester": "developer",
-    "status": "SENT",
-    "createdAt": "2022-09-27T06:16:47.271Z",
-    "updatedAt": "2022-09-27T06:16:47.272Z",
-    "__v": 0
-}
 ```
->**POSTMAN Collection** 
- [link](https://www.getpostman.com/collections/7485b52cabc0c412533f)
+**Path Params**
+- id : Notification tracking ID
+
+Sample Response
+```json
+{
+  "_id": "6332954fae124e32d0497d71",
+  "subject": "Testing purpose",
+  "recepientEmails": "sayyedaamandev01@gmail.com",
+  "content": "Hello sir, my name is Aaman.",
+  "requester": "developer",
+  "status": "SENT",
+  "createdAt": "2022-09-27T06:16:47.271Z",
+  "updatedAt": "2022-09-27T06:16:47.272Z",
+  "__v": 0
+}
+
+```
+## 📑 Postman Collection
+>Easily test the APIs using this [**POSTMAN Collection**](https://www.getpostman.com/collections/7485b52cabc0c412533f)
+
+## 🚀 Future Improvements
+- Add JWT authentication for securing APIs.
+- Extend notification types (SMS, Push).
+- Admin dashboard for viewing logs & reports.
+
+## 👨‍💻 Author
+***Aaman Sayyed***
+[🔗 GitHub](https://github.com/sayyedaaman2)
+ • [LinkedIn](https://www.linkedin.com/in/sayyed-aaman/)
